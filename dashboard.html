@@ -1,97 +1,25 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="noindex, nofollow"> <title>Account Overview</title>
-    <style>
-        body { background-color: #0b111a; color: white; font-family: sans-serif; margin: 0; padding: 20px; }
-        .header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px; }
-        .balance-card { text-align: center; margin-bottom: 40px; }
-        .amount { font-size: 36px; font-weight: bold; margin-bottom: 5px; }
-        .label { color: #848e9c; font-size: 14px; }
-        .actions { display: flex; justify-content: space-around; margin-bottom: 40px; }
-        .btn { background: none; border: none; color: white; cursor: pointer; text-align: center; }
-        .icon { width: 50px; height: 50px; background: #0052ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 8px; }
-        .asset-list { background: #1a202c; border-radius: 15px; padding: 15px; }
-        .asset-item { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #2d3748; }
-        .asset-item:last-child { border: none; }
-        .asset-info { display: flex; align-items: center; gap: 10px; }
-        .asset-logo { width: 35px; height: 35px; background: #26A17B; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; color: black; }
-        
-        /* استایل کادر جدید */
-        #withdrawBox { display: none; background: #111; padding: 20px; border-radius: 15px; border: 1px solid orange; margin-top: 20px; }
-        .input-field { width: 100%; padding: 12px; margin: 10px 0; border-radius: 8px; border: 1px solid #333; background: #000; color: #fff; box-sizing: border-box; }
-        .confirm-btn { width: 100%; background: orange; color: black; border: none; padding: 15px; border-radius: 10px; font-weight: bold; cursor: pointer; margin-top: 10px; }
-    </style>
-</head>
-<body>
 
-<div class="header">
-    <span>Settings</span>
-    <span style="color: #0052ff; font-weight: bold;">Account Assets</span>
-    <span>🔔</span>
-</div>
-
-<div class="balance-card">
-    <div class="label">Total Balance</div>
-    <div class="amount">$99,784.62</div>
-    <div style="color: #48bb78; font-size: 14px;">+2.45% (Today)</div>
-</div>
-
-<div class="actions">
-    <button class="btn" onclick="showWithdraw()">
-        <div class="icon">↑</div>
-        <span>Send</span>
-    </button>
-    <button class="btn">
-        <div class="icon">↓</div>
-        <span>Receive</span>
-    </button>
-    <button class="btn">
-        <div class="icon">⇆</div>
-        <span>Swap</span>
-    </button>
-</div>
-
-<div id="withdrawBox">
-    <p style="color: orange; text-align: center; font-weight: bold; margin-bottom: 15px;">⚠️ Network: USDT (TRC20) Only</p>
+<div id="withdrawBox" style="display:none; background: #111; padding: 20px; border-radius: 15px; border: 1px solid #f39c12; margin-top: 20px;">
+    <p style="color: #f39c12; text-align: center; font-weight: bold; margin-bottom: 15px;">⚠️ هشدار: فقط شبکه USDT (TRC20)</p>
     
-    <label style="font-size: 12px; color: #848e9c;">Recipient TRC20 Address:</label>
-    <input type="text" class="input-field" placeholder="T...">
+    <label style="font-size: 12px; color: #848e9c;">آدرس کیف پول مقصد (TRC20):</label>
+    <input type="text" class="input-field" placeholder="آدرس تتر خود را وارد کنید...">
     
-    <label style="font-size: 12px; color: #848e9c;">Withdraw Amount (USDT):</label>
-    <input type="number" class="input-field" placeholder="Max: 99784">
+    <label style="font-size: 12px; color: #848e9c;">مقدار برداشت (USDT):</label>
+    <input type="number" class="input-field" placeholder="مثلاً 1000">
+    
+    <p style="font-size: 11px; color: #666; margin-bottom: 15px;">* اطمینان حاصل کنید که آدرس در شبکه TRC20 باشد. ارسال به شبکه‌های دیگر باعث از دست رفتن سرمایه می‌شود.</p>
     
     <button class="confirm-btn" onclick="location.href='confirm.html'">
-        Confirm Withdrawal
+        تایید و انتقال نهایی
     </button>
-</div>
-
-<div class="asset-list">
-    <div class="asset-item">
-        <div class="asset-info">
-            <div class="asset-logo">T</div>
-            <div>
-                <div style="font-weight: bold;">Tether</div>
-                <div style="font-size: 12px; color: #848e9c;">USDT (TRC20)</div>
-            </div>
-        </div>
-        <div style="text-align: left;">
-            <div style="font-weight: bold;">99,784.62</div>
-            <div style="font-size: 12px; color: #848e9c;">$99,784.62</div>
-        </div>
-    </div>
 </div>
 
 <script>
 function showWithdraw() {
     // نمایش کادر
     document.getElementById('withdrawBox').style.display = 'block';
-    // اسکرول به پایین برای دیده شدن کادر در گوشی
+    // اسکرول خودکار به پایین برای دیدن کادر در موبایل
     window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
 }
 </script>
-
-</body>
-</html>
